@@ -44,7 +44,24 @@ impl Universe {
     }
 
     pub fn reverse(&mut self) {
-        
+        let size = self.view_info.len();
+        for i in 0..size {
+            if self.view_info[i as usize] == 0 {
+                self.view_info[i as usize] = 1;
+            } else {
+                self.view_info[i as usize] = 0;
+            }
+        }
     }
 
+    pub fn tick(&mut self) {
+        let count = self.count as usize;
+        if self.view_info[count as usize] == 0 {
+            self.view_info[count as usize] = 1;
+        } else {
+            self.view_info[count as usize] = 0;
+        }
+        let size = self.view_info.len();
+        self.count = (self.count + 1) % size as u32;
+    }
 }
