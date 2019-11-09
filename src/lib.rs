@@ -1,6 +1,3 @@
-fn main() {
-    println!("Hello, world!");
-}
 
 pub struct Universe {
     length: u32,
