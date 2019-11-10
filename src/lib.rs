@@ -20,6 +20,11 @@ pub fn greet() {
 }
 
 #[wasm_bindgen]
+pub fn greet2() {
+    println!("Hello, chart-action2!");
+}
+
+#[wasm_bindgen]
 pub struct Universe {
     length: u32,
     count: u32,
