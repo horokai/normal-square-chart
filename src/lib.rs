@@ -10,14 +10,14 @@ use wasm_bindgen::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen(js_namespace = normal_square_chart)]
-pub struct Universe {
+pub struct Universe2 {
     length: u32,
     count: u32,
     view_info: Vec<u8>,
 }
 
 #[wasm_bindgen(js_namespace = normal_square_chart)]
-impl Universe {
+impl Universe2 {
     pub fn countup(&mut self) {
         self.count += 1;
     }
