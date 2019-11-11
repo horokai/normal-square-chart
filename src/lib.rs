@@ -20,21 +20,21 @@ pub fn greet2() {
 
 // #[wasm_bindgen(js_namespace = normal_square_chart)]
 #[wasm_bindgen(module = "normal_square_chart")]
-pub struct Universe2 {
+pub struct Universe {
     length: u32,
     count: u32,
     view_info: Vec<u8>,
 }
 
 #[wasm_bindgen(module = "normal_square_chart")]
-impl Universe2 {
+impl Universe {
     pub fn countup(&mut self) {
         self.count += 1;
     }
 
-    pub fn new(length: u32) -> Universe2 {
+    pub fn new(length: u32) -> Universe {
         let view_info = vec![0u8; (length * length) as usize];
-        Universe2 {
+        Universe {
             length,
             count: 0u32,
             view_info,
