@@ -22,9 +22,9 @@ impl Universe2 {
         self.count += 1;
     }
 
-    pub fn new(length: u32) -> Universe {
+    pub fn new(length: u32) -> Universe2 {
         let view_info = vec![0u8; (length * length) as usize];
-        Universe {
+        Universe2 {
             length,
             count: 0u32,
             view_info,
