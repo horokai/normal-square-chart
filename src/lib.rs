@@ -19,14 +19,16 @@ pub fn greet2() {
 }
 
 // #[wasm_bindgen(js_namespace = normal_square_chart)]
-#[wasm_bindgen(module = "normal_square_chart")]
-pub struct Universe {
+#[wasm_bindgen]
+pub struct Universe22 {
     length: u32,
     count: u32,
     view_info: Vec<u8>,
 }
 
-#[wasm_bindgen(module = "normal_square_chart")]
+pub type Universe = Universe22;
+
+#[wasm_bindgen]
 impl Universe {
     pub fn countup(&mut self) {
         self.count += 1;
