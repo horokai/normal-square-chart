@@ -26,17 +26,15 @@ pub struct Universe22 {
     view_info: Vec<u8>,
 }
 
-pub type Universe = Universe22;
-
 #[wasm_bindgen]
-impl Universe {
+impl Universe22 {
     pub fn countup(&mut self) {
         self.count += 1;
     }
 
-    pub fn new(length: u32) -> Universe {
+    pub fn new(length: u32) -> Universe22 {
         let view_info = vec![0u8; (length * length) as usize];
-        Universe {
+        Universe22 {
             length,
             count: 0u32,
             view_info,
@@ -86,3 +84,5 @@ impl Universe {
         self.count = (self.count + 1) % size as u32;
     }
 }
+
+pub type Universe = Universe22;
