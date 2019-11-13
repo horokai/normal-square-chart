@@ -20,7 +20,7 @@ pub fn greet2() {
 
 // #[wasm_bindgen(js_namespace = normal_square_chart)]
 #[wasm_bindgen]
-pub struct NormalSquareChart {
+pub struct NormalSquareChartUniverse {
     length: u32,
     count: u32,
     view_info: Vec<u8>,
@@ -28,7 +28,7 @@ pub struct NormalSquareChart {
 
 // for to_string method
 use std::fmt;
-impl fmt::Display for NormalSquareChart {
+impl fmt::Display for NormalSquareChartUniverse {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         for line in self.view_info.as_slice().chunks(self.length as usize) {
             for &cell in line {
@@ -42,14 +42,14 @@ impl fmt::Display for NormalSquareChart {
 }
 
 #[wasm_bindgen]
-impl NormalSquareChart {
+impl NormalSquareChartUniverse {
     pub fn countup(&mut self) {
         self.count += 1;
     }
 
-    pub fn new(length: u32) -> NormalSquareChart {
+    pub fn new(length: u32) -> NormalSquareChartUniverse {
         let view_info = vec![0u8; (length * length) as usize];
-        NormalSquareChart {
+        NormalSquareChartUniverse {
             length,
             count: 0u32,
             view_info,
@@ -105,4 +105,4 @@ impl NormalSquareChart {
 
 }
 
-pub type Universe = NormalSquareChart;
+pub type Universe = NormalSquareChartUniverse;
