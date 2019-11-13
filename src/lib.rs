@@ -26,6 +26,21 @@ pub struct NormalSquareChart {
     view_info: Vec<u8>,
 }
 
+// for to_string method
+use std::fmt;
+impl fmt::Display for NormalSquareChart {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        for line in self.view_info.as_slice().chunks(self.length as usize) {
+            for &cell in line {
+                let symbol = if cell == 0 { '◻' } else { '◼' };
+                write!(f, "{}", symbol)?;
+            }
+            write!(f, "\n")?;
+        }
+        Ok(())
+    }
+}
+
 #[wasm_bindgen]
 impl NormalSquareChart {
     pub fn countup(&mut self) {
@@ -83,6 +98,11 @@ impl NormalSquareChart {
         let size = self.view_info.len();
         self.count = (self.count + 1) % size as u32;
     }
+
+    pub fn render(&self) -> String {
+        self.to_string()
+    }
+
 }
 
 pub type Universe = NormalSquareChart;
