@@ -71,10 +71,7 @@ impl NormalSquareChartUniverse {
     pub fn reset(&mut self, length: u32) {
         self.length = length;
         self.count = 0u32;
-        let size = self.view_info.len();
-        for i in 0..size {
-            self.view_info[i as usize] = 0;
-        }
+        self.view_info = vec![0u8; (length * length) as usize];
     }
 
     pub fn reverse(&mut self) {
@@ -102,7 +99,6 @@ impl NormalSquareChartUniverse {
     pub fn render(&self) -> String {
         self.to_string()
     }
-
 }
 
 pub type Universe = NormalSquareChartUniverse;
